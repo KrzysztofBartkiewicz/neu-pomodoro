@@ -1,13 +1,14 @@
 .header {
-  padding: 63px 22px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 73px;
   &__heading {
     margin: 0;
     padding: 0;
     color: #d2d6ef;
-    font-weight: 200;
+    font-weight: 300;
   }
 }
 

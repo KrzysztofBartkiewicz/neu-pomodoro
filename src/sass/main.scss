@@ -1,4 +1,8 @@
+@import "utilities/mixins";
+
 @import "base";
 @import "components/App";
 @import "components/Header";
 @import "components/MenuButton";
+@import "components/CustomCircularProgressbar";
+@import "components/CircularProgressbar";
