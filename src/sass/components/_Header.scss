@@ -1,0 +1,13 @@
+.header {
+  padding: 63px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__heading {
+    margin: 0;
+    padding: 0;
+    color: #d2d6ef;
+    font-weight: 200;
+  }
+}
+
