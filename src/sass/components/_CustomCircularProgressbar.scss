@@ -1,6 +1,7 @@
 .custom-circular-progressbar {
   width: 280px;
   height: 280px;
+  margin-bottom: 32px;
   position: relative;
   @include neu-style;
   &__wrapper {

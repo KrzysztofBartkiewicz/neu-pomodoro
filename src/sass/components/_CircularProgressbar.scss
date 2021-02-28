@@ -19,8 +19,8 @@
 .CircularProgressbar .CircularProgressbar-path {
   stroke: #3e98c7;
   stroke-linecap: round;
-  -webkit-transition: stroke-dashoffset 0.5s ease 0s;
-  transition: stroke-dashoffset 0.5s ease 0s;
+  -webkit-transition: stroke-dashoffset 0.2s ease 0s;
+  transition: stroke-dashoffset 0.2s ease 0s;
 }
 
 .CircularProgressbar .CircularProgressbar-trail {
@@ -69,7 +69,7 @@
 // Custom styles
 
 .CircularProgressbar .CircularProgressbar-trail {
-  stroke: #3c4163;
+  stroke: #323754;
   stroke-width: 3px;
 }
 
