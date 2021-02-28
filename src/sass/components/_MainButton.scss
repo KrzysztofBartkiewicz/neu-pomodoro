@@ -1,0 +1,11 @@
+.main-button {
+  width: 64px;
+  height: 64px;
+  @include neu-style;
+  border-radius: 21px;
+  cursor: pointer;
+  &__icon {
+    color: #d2d6ef;
+    font-size: 30px;
+  }
+}
