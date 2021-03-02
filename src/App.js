@@ -7,6 +7,10 @@ const focusTime = 10000;
 const shortBrakeTime = 5000;
 const longBrakeTime = 8000;
 
+function capitalize(word) {
+  return word.charAt(0).toUpperCase().concat(word.slice(1, word.length));
+}
+
 function App() {
   const timerRef = useRef();
   const [time, setTime] = useState({
@@ -16,6 +20,7 @@ function App() {
   const [step, setStep] = useState(1);
   const [mode, setMode] = useState('focus');
   const [isPaused, setIsPaused] = useState(true);
+  const [barColor, setBarColor] = useState('#612ff5');
 
   const preserveRemainingTime = () => {
     const timerApi = timerRef.current;
@@ -66,18 +71,25 @@ function App() {
     } else if (mode === 'long brake') {
       setTime({ total: longBrakeTime, remaining: longBrakeTime });
     }
+    
+    if (mode === 'focus') {
+      setBarColor('#612ff5');
+    } else {
+      setBarColor('#ffaa5c');
+    }
   }, [mode]);
-
+  
   return (
     <div className="app">
       <Header />
       <CustomCircularProgressbar
+        pathColor={barColor}
         remainingTime={time.remaining}
         totalTime={time.total}
         onComplete={handleCountdownCopmlete}
         coundownRef={timerRef}
       />
-      <span className="app__info">{mode}</span>
+      <span className="app__info">{capitalize(mode)}</span>
       <MainButton onClick={handleClick} icon={isPaused ? 'run' : 'pause'} />
     </div>
   );

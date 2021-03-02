@@ -5,6 +5,7 @@ const CustomCircularProgressbar = ({
   remainingTime,
   totalTime,
   onComplete,
+  pathColor,
   coundownRef,
 }) => {
   const renderer = ({ minutes, seconds, milliseconds }) => (
@@ -13,6 +14,11 @@ const CustomCircularProgressbar = ({
         <CircularProgressbarWithChildren
           value={milliseconds + seconds * 1000 + minutes * 60000}
           maxValue={totalTime}
+          styles={{
+            path: {
+              stroke: pathColor
+            }
+          }}
         >
           <span className="custom-circular-progressbar__time">
             {minutes < 1 ? seconds : minutes}
@@ -24,6 +30,7 @@ const CustomCircularProgressbar = ({
       </div>
     </div>
   );
+
   return (
     <Countdown
       date={Date.now() + remainingTime}
