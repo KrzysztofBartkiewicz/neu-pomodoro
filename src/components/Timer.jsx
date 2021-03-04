@@ -65,16 +65,13 @@ function Timer() {
   useEffect(() => {
     if (mode === 'focus') {
       setTime({ total: focusTime, remaining: focusTime });
+      setBarColor('#612ff5');
     } else if (mode === 'short brake') {
       setTime({ total: shortBrakeTime, remaining: shortBrakeTime });
+      setBarColor('#ffaa5c');
     } else if (mode === 'long brake') {
       setTime({ total: longBrakeTime, remaining: longBrakeTime });
-    }
-    
-    if (mode === 'focus') {
-      setBarColor('#612ff5');
-    } else {
-      setBarColor('#ffaa5c');
+      setBarColor('#61b15a');
     }
   }, [mode]);
   
