@@ -3,9 +3,10 @@ import {
   faVolumeUp,
   faVolumeMute,
   faCog,
+  faClock
 } from '@fortawesome/free-solid-svg-icons';
 
-const MenuButton = ({ icon }) => {
+const MenuButton = ({ icon, onClick }) => {
   let displayIcon;
   if (icon === 'volumeUp') {
     displayIcon = faVolumeUp;
@@ -13,11 +14,13 @@ const MenuButton = ({ icon }) => {
     displayIcon = faVolumeMute;
   } else if (icon === 'settings') {
     displayIcon = faCog;
+  } else if (icon === 'app') {
+    displayIcon = faClock;
   } else {
     throw new Error('You must declare icon in MenuButton component');
   }
   return (
-    <button className="menu-button">
+    <button className="menu-button" onClick={onClick}>
       <FontAwesomeIcon className="menu-button__icon" icon={displayIcon} />
     </button>
   );
