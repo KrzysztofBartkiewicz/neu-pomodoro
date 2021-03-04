@@ -33,7 +33,11 @@ function App() {
           setLongBrakeValue={setLongBrakeValue}
         />
       ) : (
-        <Timer />
+        <Timer
+          focusTime={focusValue * 60000}
+          shortBrakeTime={shortBrakeValue * 60000}
+          longBrakeTime={longBrakeValue * 60000}
+        />
       )}
     </div>
   );

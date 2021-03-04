@@ -2,15 +2,11 @@ import React, { useRef, useState, useEffect } from 'react';
 import CustomCircularProgressbar from './CustomCircularProgressbar';
 import MainButton from './MainButton';
 
-const focusTime = 10000;
-const shortBrakeTime = 5000;
-const longBrakeTime = 8000;
-
 function capitalize(word) {
   return word.charAt(0).toUpperCase().concat(word.slice(1, word.length));
 }
 
-function Timer() {
+function Timer({ focusTime, shortBrakeTime, longBrakeTime }) {
   const timerRef = useRef();
   const [time, setTime] = useState({
     total: focusTime,
@@ -73,7 +69,7 @@ function Timer() {
       setTime({ total: longBrakeTime, remaining: longBrakeTime });
       setBarColor('#61b15a');
     }
-  }, [mode]);
+  }, [mode, focusTime, shortBrakeTime, longBrakeTime]);
   
   return (
     <div className="timer">

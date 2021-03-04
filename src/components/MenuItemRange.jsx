@@ -9,7 +9,7 @@ const MenuItemRange = ({ label, trackColor, values, setValues }) => {
   return (
     <div className="menu-item-range">
       <h3 className="menu-item-range__label">{label}</h3>
-      <span className="menu-item-range__value">{values[0]}</span>
+      <span className="menu-item-range__value">{`${values[0]} : 00`}</span>
       <Range
         min={MIN}
         max={MAX}
