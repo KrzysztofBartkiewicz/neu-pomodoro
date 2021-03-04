@@ -1,0 +1,36 @@
+.menu-item-range {
+  @include neu-style;
+  margin-bottom: 20px;
+  min-width: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $white;
+  &__label {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  &__value {
+    margin-bottom: 20px;
+  }
+  &__track {
+    width: 80%;
+    height: 4px;
+    border-radius: 10px;
+    background: $black;
+    cursor: pointer;
+  }
+  &__thumb {
+    background: linear-gradient(145deg, #363b5a, #2d324c);
+    box-shadow: 5px 5px 9px #141622, -5px -5px 9px #505886;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+}
