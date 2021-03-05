@@ -4,9 +4,9 @@ import Timer from './components/Timer';
 import Menu from './components/Menu';
 
 function App() {
-  const [focusValue, setFocusValue] = useState([1]);
-  const [shortBrakeValue, setShortBrakeValue] = useState([1]);
-  const [longBrakeValue, setLongBrakeValue] = useState([1]);
+  const [focusValue, setFocusValue] = useState([25]);
+  const [shortBrakeValue, setShortBrakeValue] = useState([5]);
+  const [longBrakeValue, setLongBrakeValue] = useState([15]);
   const [isSettingsClicked, setSettingsClick] = useState(false);
 
   const handleSettingsClick = () => {

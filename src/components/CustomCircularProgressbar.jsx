@@ -1,5 +1,5 @@
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
-import Countdown from 'react-countdown';
+import Countdown, { zeroPad } from 'react-countdown';
 
 const CustomCircularProgressbar = ({
   remainingTime,
@@ -8,7 +8,7 @@ const CustomCircularProgressbar = ({
   pathColor,
   coundownRef,
 }) => {
-  const renderer = ({ hours, minutes, seconds }) => (
+  const renderer = ({ hours, minutes, seconds, api }) => (
     <div className="custom-circular-progressbar">
       <div className="custom-circular-progressbar__wrapper">
         <CircularProgressbarWithChildren
@@ -21,10 +21,10 @@ const CustomCircularProgressbar = ({
           }}
         >
           <span className="custom-circular-progressbar__time">
-            {`${hours * 60 + minutes}:${seconds}`}
+            {`${hours * 60 + minutes}:${zeroPad(seconds)}`}
           </span>
           <span className="custom-circular-progressbar__info">
-            {minutes < 1 ? 'seconds' : 'minutes'}
+            {api.isPaused() ? 'Pasued' : ''}
           </span>
         </CircularProgressbarWithChildren>
       </div>
