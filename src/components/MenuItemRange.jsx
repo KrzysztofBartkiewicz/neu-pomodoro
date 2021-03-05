@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 
 const MIN = 1;
@@ -18,18 +17,24 @@ const MenuItemRange = ({ label, trackColor, values, setValues }) => {
         onChange={(values) => setValues(values)}
         renderTrack={({ props, children }) => (
           <div
-            {...props}
-            className="menu-item-range__track"
-            style={{
-              background: getTrackBackground({
-                values,
-                min: MIN,
-                max: MAX,
-                colors: [trackColor, '#323754'],
-              }),
-            }}
+            className="menu-item-range__track-outer"
+            onMouseDown={props.onMouseDown}
+            onTouchStart={props.onTouchStart}
           >
-            {children}
+            <div
+              className="menu-item-range__track"
+              ref={props.ref}
+              style={{
+                background: getTrackBackground({
+                  values,
+                  min: MIN,
+                  max: MAX,
+                  colors: [trackColor, '#323754'],
+                }),
+              }}
+            >
+              {children}
+            </div>
           </div>
         )}
         renderThumb={({ props }) => (

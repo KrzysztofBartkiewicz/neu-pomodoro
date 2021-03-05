@@ -7,8 +7,8 @@ const Menu = ({
   setShortBrakeValue,
   longBrakeValue,
   setLongBrakeValue,
-}) => {
-  
+  handleReset
+}) => {  
   return (
     <div className="menu">
       <h2 className="menu__heading">Menu</h2>
@@ -31,6 +31,7 @@ const Menu = ({
         label={'Long brake'}
         trackColor={'#61b15a'}
       />
+      <button onClick={handleReset} className="menu__reset">Reset defaults</button>
     </div>
   );
 };

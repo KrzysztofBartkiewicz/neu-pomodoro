@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import Timer from './components/Timer';
 import Menu from './components/Menu';
@@ -7,15 +7,21 @@ function App() {
   const [focusValue, setFocusValue] = useState([1]);
   const [shortBrakeValue, setShortBrakeValue] = useState([1]);
   const [longBrakeValue, setLongBrakeValue] = useState([1]);
-  const [isSettingsClicked, setIsSettingsClicked] = useState(false);
+  const [isSettingsClicked, setSettingsClick] = useState(false);
 
   const handleSettingsClick = () => {
     if (isSettingsClicked) {
-      setIsSettingsClicked(false);
+      setSettingsClick(false);
     } else {
-      setIsSettingsClicked(true);
+      setSettingsClick(true);
     }
   };
+
+  const handleReset = () => {
+    setFocusValue([25]);
+    setShortBrakeValue([5]);
+    setLongBrakeValue([15]);
+  }
 
   return (
     <div className="app">
@@ -31,12 +37,13 @@ function App() {
           setShortBrakeValue={setShortBrakeValue}
           longBrakeValue={longBrakeValue}
           setLongBrakeValue={setLongBrakeValue}
+          handleReset={handleReset}
         />
       ) : (
         <Timer
-          focusTime={focusValue * 60000}
-          shortBrakeTime={shortBrakeValue * 60000}
-          longBrakeTime={longBrakeValue * 60000}
+          focusTime={focusValue[0] * 60000}
+          shortBrakeTime={shortBrakeValue[0] * 60000}
+          longBrakeTime={longBrakeValue[0] * 60000}
         />
       )}
     </div>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import Countdown from 'react-countdown';
 
@@ -9,14 +8,12 @@ const CustomCircularProgressbar = ({
   pathColor,
   coundownRef,
 }) => {
-  const renderer = ({ hours, minutes, seconds, milliseconds }) => (
+  const renderer = ({ hours, minutes, seconds }) => (
     <div className="custom-circular-progressbar">
       <div className="custom-circular-progressbar__wrapper">
         <CircularProgressbarWithChildren
-          value={
-            milliseconds + seconds * 1000 + minutes * 60000 + hours * 3600000
-          }
-          maxValue={totalTime}
+          value={minutes * 60 + seconds}
+          maxValue={totalTime / 1000}
           styles={{
             path: {
               stroke: pathColor,
@@ -34,16 +31,11 @@ const CustomCircularProgressbar = ({
     </div>
   );
 
-  useEffect(() => {
-    console.log(remainingTime) 
-  })
-
   return (
     <Countdown
       date={Date.now() + remainingTime}
       autoStart={false}
-      intervalDelay={100}
-      precision={3}
+      intervalDelay={1000}
       onComplete={onComplete}
       renderer={renderer}
       ref={coundownRef}

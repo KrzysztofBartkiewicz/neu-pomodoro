@@ -1,7 +1,6 @@
 .menu-item-range {
   @include neu-style;
   margin-bottom: 20px;
-  min-width: 300px;
   padding: 20px;
   border-radius: 15px;
   display: flex;
@@ -15,12 +14,21 @@
   &__value {
     margin-bottom: 20px;
   }
+  &__track-outer {
+    width: 260px;
+    height: 25px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+  }
   &__track {
-    width: 80%;
+    width: 100%;
     height: 4px;
     border-radius: 10px;
     background: $black;
-    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
   &__thumb {
     background: linear-gradient(145deg, #363b5a, #2d324c);

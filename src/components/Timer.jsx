@@ -14,7 +14,7 @@ function Timer({ focusTime, shortBrakeTime, longBrakeTime }) {
   });
   const [step, setStep] = useState(1);
   const [mode, setMode] = useState('focus');
-  const [isPaused, setIsPaused] = useState(true);
+  const [isPaused, setPause] = useState(true);
   const [barColor, setBarColor] = useState('#612ff5');
 
   const preserveRemainingTime = () => {
@@ -25,9 +25,9 @@ function Timer({ focusTime, shortBrakeTime, longBrakeTime }) {
   const handleClick = () => {
     if (isPaused) {
       preserveRemainingTime();
-      setIsPaused(false);
+      setPause(false);
     } else {
-      setIsPaused(true);
+      setPause(true);
     }
   };
 
