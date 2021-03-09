@@ -4,17 +4,17 @@ const MIN = 1;
 const MAX = 90;
 const STEP = 1;
 
-const MenuItemRange = ({ label, trackColor, values, setValues }) => {
+const MenuItemRange = ({ label, trackColor, value, setValue }) => {  
   return (
     <div className="menu-item-range">
       <h3 className="menu-item-range__label">{label}</h3>
-      <span className="menu-item-range__value">{`${values[0]} : 00`}</span>
+      <span className="menu-item-range__value">{`${value[0]} : 00`}</span>
       <Range
         min={MIN}
         max={MAX}
         step={STEP}
-        values={values}
-        onChange={(values) => setValues(values)}
+        values={value}
+        onChange={(value) => setValue(value)}
         renderTrack={({ props, children }) => (
           <div
             className="menu-item-range__track-outer"
@@ -26,7 +26,7 @@ const MenuItemRange = ({ label, trackColor, values, setValues }) => {
               ref={props.ref}
               style={{
                 background: getTrackBackground({
-                  values,
+                  values: value,
                   min: MIN,
                   max: MAX,
                   colors: [trackColor, '#323754'],
